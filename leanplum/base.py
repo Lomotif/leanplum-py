@@ -91,6 +91,18 @@ class Leanplum:
         })
         return self._request(track_arguments)
 
+    def get_vars(self, device_id, include_defaults=True):
+        """
+        Call the API with the getVars action
+        Gets the variable diff for the app or the current device
+        """
+        arguments = {
+            'action': 'getVars',
+            'includeDefaults': include_defaults,
+            'deviceId': device_id
+        }
+        return self._request(arguments)
+
     def heartbeat(self):
         """Sends a keepalive heartbeat to the server"""
 
